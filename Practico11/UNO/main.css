@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: blue;
+}
+
+body {
+    background-color: #232323;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 20rem;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    margin-bottom: 1rem;
+}
+
+h1 em {
+    color: yellow;
+}
+
+p, p strong {
+    color: green;
+}
+
+#p1, #p2 {
+    font-size: 22px;
+}
+
+#p1 {
+    font-family: Arial sans-serif;
+}
+
+#p2 {
+    font-family: Helvetica, sans-serif;
+}
+

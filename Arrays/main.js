@@ -136,3 +136,60 @@ function floor (room, moquette) {
 const room = 45
 const moquette = [2*4, 1*3, 5*6]
 // console.log(floor(room, moquette))
+//--------------------------------------------------------------------------------------------------
+/*
+    7) Se tiene la información de temperaturas de diversos puntos de control meteorológico del
+    país. Esa información está en un array. Por cada medida, se indica punto de control
+    (número entre 1 y 50) y temperatura observada.
+    
+    Ej.: datos: (1, 20, 4, 12, 1, 22, 3, 18, 4,16, 5,17, 8, 21,1, 21, 3, 6)
+    Corresponde a: punto de control 1, temperatura 20; punto 4, temperatura 12; punto
+    1, temperatura 22, etc.
+    
+    Implementar una función que reciba un array cargado de esta manera y un valor y retorne
+    un array con los puntos de control donde el respectivo promedio de temperatura sea menor
+    que el valor dado. Para el ejemplo, si se indica valor 16, debe retornarse (3 4)
+    Nota: solamente considerar aquellos puntos en los que se registraron datos.
+*/
+
+// function radar (data, ask) {
+
+//     const result = []
+//     let position = 0
+//     for (let i = 0; i < data.length; i += 2){
+//         let punto = data[i]
+//         let temp = data[i + 1]
+//         result.push(`Punto: ${punto}. Temperatura: ${temp}`)
+//     }
+
+//     position = result[ask - 1]
+
+//     return {
+//         result,
+//         position
+//     }
+// }
+
+// const puntos = [1, 20 ,4 ,12 ,1 ,22 ,3 ,18 ,4 , 16 ,5 ,17 ,8 ,21 ,1 ,21 ,3 ,6]
+// const ask = 4
+// console.log(radar(puntos, ask))
+//--------------------------------------------------------------------------------------------------
+/*
+    Dado un array cargado con números, indicar cuál es el número que aparece más veces y
+    su cantidad de ocurrencias. Si hubiera varios, cualquiera de ellos.
+    
+    Ej: [1,5,1,5,7,8,1] retorna “el número 1 con 3 ocurrencias”
+*/
+
+// ordenar primero
+// despues chekear si es igual al siguiente
+
+function repeted (data) {
+
+    let num = 0
+    for (let i = 0; i < data.length; i++){
+        
+    }
+}
+
+const num = [1 ,5 ,1 , 5, 7, 8, 1]
