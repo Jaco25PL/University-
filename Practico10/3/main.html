@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="../main.css">
+    
+    <title>Exercise THREE</title>
+</head>
+<body>
+    
+    <div>
+        <header>
+            <h1>Exercise 3</h1>
+            <p>Design a page that insert words in a table and indicate if the word is palindrome or not</p>
+        </header>
+
+        <main>
+
+            <form id="form">
+                <label for="add_word" style="width: max-content;">Write a word to check if it's 'palindrome'</label>
+                <input type="text" id="add_word">
+
+                <div>
+                    <button type="button" id="add">Add to table</button>
+                    <button type="button" id="clear">Clear</button>
+                </div>
+            </form>
+
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th>WORDS</th>
+                        <th>PALINDROME?</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tbody">
+                    <!-- Rows will be inserted with JS -->
+                </tbody>
+            </table>
+
+        </main>
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+</html>
