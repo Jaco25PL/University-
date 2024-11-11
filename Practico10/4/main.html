@@ -14,10 +14,40 @@
 
         <header>
             <h1>Exercise 4</h1>
-            <p></p>
+            <p>Simple calculator</p>
         </header>
         <main>
-            <span>** Content here **</span>
+
+            <form id="form">
+                <label for="first_number">First Number</label>
+                <input type="text" name="first_number" id="first_number">
+
+                <label>Chose operator</label>
+
+                <div>
+
+                    <label for="addition">+</label>
+                    <input type="radio" name="operator" id="addition" value="+">
+                    
+                    <label for="subtraction">-</label>
+                    <input type="radio" name="operator" id="subtraction" value="-">
+                    
+                    <label for="multiplication">*</label>
+                    <input type="radio" name="operator" id="multiplication" value="*">
+                    
+                    <label for="divition">/</label>
+                    <input type="radio" name="operator" id="divition" value="/">
+
+                </div>
+
+                <label for="second_number">Second Number</label>
+                <input type="text" name="second_number" id="second_number">
+
+                <button type="button" id="btn">Calculate</button>
+            </form>
+
+            <span id="show_result">...</span>
+       
         </main>
 
     </div>
