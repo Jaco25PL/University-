@@ -51,10 +51,14 @@ class System {
 
 		let result = 'No data'
 		if ( amount > 0) {
-			result =counter
+			result = counter / cant
 		}
 
 		return result
+	}
+
+	typeMoreRequired () {
+		let type = []
 	}
 }
 
