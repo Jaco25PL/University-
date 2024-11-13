@@ -2,16 +2,65 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="../main.js">
+    <link rel="stylesheet" href="../main.css">
+
 	<title>Exercice SEVEN</title> 
 </head>
 <body>
 
 	<header>
 		<h1>Exercice 7</h1>
-		<p></p>
+		<p>Home expenses. Create a page to enter home expenses. Each expense is added with a day (1-31), amount, and description. Use natural notation.</p>
+		<ul>
+			<li>Add a buttn to show expenses ordered by amount in a table, To chose if the order is from top to bottom or reverse, add a radio button</li>
+			<li>Add a button for highest spend consults</li>
+			<li>Add a button for spends average consults. Show 2 decimal numbers</li>
+			<li>Add a button that inform in a list the total of spends by day</li>
+		</ul>
+
 	</header>
-	<main id="main"></main>
+
+	<main id="main">
+
+		<h2>Home Expenses</h2>
+
+		<div>
+			<h3>Enter</h3>
+			<form>
+				<label for="day">Day</label>
+				<input type="text" name="expenses" id="day">
+				
+				<label for="desc">Expense description</label>
+				<input type="text" name="expenses" id="desc">
+
+				<label for="amount">Amount</label>
+				<input type="text" name="expenses" id="amount">
+			
+				<button type="button" id="add_btn">Add expense</button>
+			</form>
+		</div>
+
+		<div>
+			<h3>Ask for expenses ordered by amount</h3>
+
+			<form>
+				<input type="radio" id="">
+				<input type="radio" id="">
+
+				<button type="button" id="ask_amount_btn"></button>
+			</form>
+		</div>
+		<div>
+
+		</div>
+		<div>
+
+		</div>
+		<div>
+
+		</div>
+
+	</main>
 
 	<script src="./main.js"></script>
 </body>
