@@ -84,32 +84,57 @@ class Sistema{
         this.listaEncargados = [];
     }
     // pedido 3a
-    encargadosSinPaseo(){
-        let encargadosQueNoEstanEnLaListaDePasosPorqueNoTienenPaseosAsignados = [];
-        for (let i = 0; i < this.listaEncargados.length; i++){
-            
+    encargadosSinPaseos() {
+        let encargadosConPaseos = [];
+        for (let i = 0; i < this.listaPaseos.length; i++) {
+            const nombreEncargado = this.listaPaseos[i].encargado.nombre;
+            if (!this.estaEnLista(encargadosConPaseos, nombreEncargado)) {
+                encargadosConPaseos.push(nombreEncargado);
+            }
+        }
 
-            for(let j = 0; j < this.listaPaseos.length; j++){
-                if(this.listaEncargados[i].nombre !== this.listaPaseos[j].encargado) {
-                    encargadosQueNoEstanEnLaListaDePasosPorqueNoTienenPaseosAsignados.push(this.listaEncargados[i])
+        let sinPaseos = [];
+        for (let j = 0; j < this.listaEncargados.length; j++) {
+            const encargado = this.listaEncargados[j];
+            if (!this.estaEnLista(encargadosConPaseos, encargado.nombre)) {
+                sinPaseos.push(encargado);
+            }
+        }
+
+        // Ordenar de forma decreciente por nombre
+        for (let k = 0; k < sinPaseos.length - 1; k++) {
+            for (let l = k + 1; l < sinPaseos.length; l++) {
+                if (sinPaseos[k].nombre < sinPaseos[l].nombre) {
+                    let temp = sinPaseos[k];
+                    sinPaseos[k] = sinPaseos[l];
+                    sinPaseos[l] = temp;
                 }
             }
         }
-        return encargadosQueNoEstanEnLaListaDePasosPorqueNoTienenPaseosAsignados;
-    }    
+
+        return sinPaseos;
+    }
+
+    // Función auxiliar para buscar en una lista
+    estaEnLista(lista, valor) {
+        for (let i = 0; i < lista.length; i++) {
+            if (lista[i] === valor) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
 
 class Paseo{
-    constructor(dia, barrio, descripcion,
-    encargado){
+    constructor(dia, barrio, descripcion, encargado){
         // el dia va de 1 a 31
         // el barrio de 1 a 10
         this.dia = dia;
-        this.barrio= barrio ;
-        this.descripcion= descripcion;
-        this.encargado=encargado;
-        //objeto encargado
+        this.barrio = barrio ;
+        this.descripcion = descripcion;
+        this.encargado = encargado;
     }
 }
 
@@ -121,4 +146,58 @@ class Encargado{
 }
 
 
-   
+let sistema = new Sistema();
+
+
+// Parte 3c - Consulta de paseos por descripción
+window.addEventListener("load", inicio);
+
+function inicio() {
+    document.getElementById("idConsulta").addEventListener("click", consulta);
+}
+
+function consulta() {
+    const texto = document.getElementById("idTexto").value.toLowerCase();
+    const listaPaseos = document.getElementById("listaPaseos");
+
+    // Limpiar lista anterior
+    listaPaseos.innerHTML = "";
+
+    // Buscar paseos por descripción
+    let resultados = [];
+
+    for (let i = 0; i < sistema.listaPaseos.length; i++) {
+        const paseo = sistema.listaPaseos[i];
+        if (paseo.descripcion.toLowerCase().includes(texto)) {
+            resultados.push(paseo);
+        }
+    }
+
+    if (resultados.length === 0) {
+        alert("No hay datos que coincidan con la búsqueda.");
+    } else {
+        for (let j = 0; j < resultados.length; j++) {
+            const paseo = resultados[j];
+            const li = document.createElement("li");
+            li.textContent = `Día: ${paseo.dia}, Encargado: ${paseo.encargado.nombre}`;
+            listaPaseos.appendChild(li);
+        }
+    }
+}
+
+
+
+
+// Datos de prueba
+let encargado1 = new Encargado("Carlos", 35);
+let encargado2 = new Encargado("Ana", 28);
+let encargado3 = new Encargado("Luis", 40);
+let encargado4 = new Encargado("María", 32);
+
+sistema.listaEncargados.push(encargado1, encargado2, encargado3, encargado4);
+
+let paseo1 = new Paseo(5, 3, "Recorrido histórico por el casco antiguo", encargado1);
+let paseo2 = new Paseo(10, 7, "Tour gastronómico por el barrio", encargado2);
+let paseo3 = new Paseo(15, 1, "Excursión al parque ecológico", encargado1);
+
+sistema.listaPaseos.push(paseo1, paseo2, paseo3);
